@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stissera <stissera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 12:42:07 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/10 19:37:00 by stissera         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:10:08 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	ft_draw_scaled(t_ray *ray, mlx_texture_t *texture,
 		error = (ray->height - SCREEN_Y) * texture->height / 2;
 		y = error / ray->height;
 		error = error % ray->height;
-		max_y = SCREEN_Y ;
+		max_y = SCREEN_Y;
 	}
 	while (dst_y < max_y)
 	{

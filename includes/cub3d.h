@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:45:48 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/12 14:01:47 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/12 17:27:19 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <errno.h>
 # include <math.h>
 
-# define SCREEN_X 1024
-# define SCREEN_Y 768
+# define SCREEN_X 800
+# define SCREEN_Y 800
 # define SCALE 32
 # define NAME "CUB3D - stissera"
 # define P_SPEED 0.1
@@ -110,6 +110,7 @@ int		ft_map_create(char *line, t_map *map);
 int		ft_map_insert_param(char *line, t_game *g);
 int		ft_file_exist(char *file);
 void	*ft_get_struct(void *data);
+void	ft_minimap(t_game *g);
 
 int		ft_error(int value);
 
