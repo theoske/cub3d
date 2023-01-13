@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 12:42:07 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/12 18:10:08 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:11:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	ft_draw_scaled(t_ray *ray, mlx_texture_t *texture,
 		ft_draw_col(texture, col, dst_y, (t_point){x,y});
 		dst_y++;
 		error += texture->width;
-	}	
+	}
 }
 
 void	ft_draw(t_game *g)

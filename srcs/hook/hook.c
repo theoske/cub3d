@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:28:38 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/12 17:50:17 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/13 13:03:08 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	hook(void *base)
 	g->player->dy = sin(g->player->angle);
 	ft_sum_ray(g);
 	ft_draw(g);
-	//ft_minimap(g);
+	ft_minimap(g);
 }
 
 void	ft_player_move_fb(mlx_t *mlx, t_pos *player, t_game *g)

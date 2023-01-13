@@ -20,8 +20,8 @@ HOOK		=	hook.c \
 				mouse_hook.c
 MAP			=	map.c \
 				import_param.c \
-				import_map.c
-# ft_minimap.c 
+				import_map.c \
+				minimap.c
 FREE		=	free_map.c \
 				free_utils.c \
 				free_utils_2.c
