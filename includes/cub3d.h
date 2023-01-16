@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:45:48 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/12 19:01:56 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:27:36 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ typedef struct s_map
 	int				size_x;
 	int				size_y;
 	char			**map;
-	mlx_texture_t	*texture[6];
-	mlx_texture_t	*color[6];
+	mlx_texture_t	*texture[7];
+	mlx_texture_t	*color[7];
 }	t_map;
 
 typedef struct s_ray

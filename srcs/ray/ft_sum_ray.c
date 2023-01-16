@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sum_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stissera <stissera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:40:56 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/09 10:00:48 by stissera         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:40:14 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_pos	ray_inter_x(t_game *g, double x, double y)
 		inter.y = g->player->y + y * (g->player->x - (int)g->player->x);
 	while ((unsigned)inter.y < (unsigned)g->map->size_y && \
 			(unsigned)inter.x < (unsigned)g->map->size_x && \
-			g->map->map[(unsigned)inter.y][(unsigned)inter.x] != '1')
+			g->map->map[(unsigned)inter.y][(unsigned)inter.x] != '1')// D
 			inter = (t_pos){inter.x + x, inter.y + y, 0, 0, 0, 0};
 	inter.x += (x < 0);
 	return (inter);
@@ -40,7 +40,7 @@ static t_pos	ray_inter_y(t_game *g, double x, double y)
 		inter.x = g->player->x + x * (g->player->y - (int)g->player->y);
 	while ((unsigned)inter.y < (unsigned)g->map->size_y && \
 			(unsigned)inter.x < (unsigned)g->map->size_x && \
-			g->map->map[(unsigned)inter.y][(unsigned)inter.x] != '1')
+			g->map->map[(unsigned)inter.y][(unsigned)inter.x] != '1')// D
 		inter = (t_pos){inter.x + x, inter.y + y, 0, 0, 0, 0};
 	inter.y += (y < 0);
 	return (inter);

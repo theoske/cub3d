@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:39:01 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/16 15:33:27 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:34:29 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,10 @@ void	ft_minimap(t_game *g)
 	minimap = g->img;//minimap 1/5e ecran
 	ft_mini_init(minimap);//met le fond
 	x = g->player->x - 4;//4 cases avant joueur
-	// if (x < 0 || !g->map->map[(int)g->player->y][x])
-	// 	x--;
 	i = 0;
 	while (x < g->player->x + 4)// jusqua 4 cases apres 
 	{
 		y = g->player->y - 4;
-		// if (y < 0 || !g->map->map[y][(int)g->player->x])
-		// 	y--;
 		j = 0;
 		while (y < g->player->y + 4)
 		{
