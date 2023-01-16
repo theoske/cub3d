@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:39:01 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/14 19:55:57 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:07:59 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_mini_init(mlx_image_t *minimap)
 }
 
 //plante quand approche bord tableau 9 * 9
-void	ft_minimap(t_game *g)// pixel noir rend transparent
+void	ft_minimap(t_game *g)
 {
 	mlx_image_t	*minimap;
 	//coordonnees des points de la map a convertir en minimap
@@ -65,10 +65,14 @@ void	ft_minimap(t_game *g)// pixel noir rend transparent
 	minimap = g->img;//minimap 1/5e ecran
 	ft_mini_init(minimap);//met le fond
 	x = g->player->x - 4;//4 cases avant joueur
+	if (x < 0)
+		x--;
 	i = 0;
 	while (x < g->player->x + 4)// jusqua 4 cases apres 
 	{
 		y = g->player->y - 4;
+		if (y < 0)
+			y--;
 		j = 0;
 		while (y < g->player->y + 4)
 		{
