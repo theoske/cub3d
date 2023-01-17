@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:39:02 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/17 16:32:07 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/17 17:07:47 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void	ft_door(t_game *g)
 	//si il y a une porte a 1 de distqnce et si 'f' est appuye alors ouvrir porte
 	if (mlx_is_key_down(g->mlx, MLX_KEY_F))
 	{
-		if (g->map->map[(int)g->player->y + 1][(int)g->player->x] == 'D')
+		if (g->map->map[(int)g->player->y + 1][(int)g->player->x] == 'D' && (int)g->player->y + 1 != g->map->size_y - 1)
 			g->map->map[(int)g->player->y + 1][(int)g->player->x] = '0';
-		if (g->map->map[(int)g->player->y - 1][(int)g->player->x] == 'D')
+		if (g->map->map[(int)g->player->y - 1][(int)g->player->x] == 'D' && (int)g->player->y - 1 != 0)
 			g->map->map[(int)g->player->y - 1][(int)g->player->x] = '0';
-		if (g->map->map[(int)g->player->y][(int)g->player->x + 1] == 'D')
+		if (g->map->map[(int)g->player->y][(int)g->player->x + 1] == 'D' && (int)g->player->x + 1 != g->map->size_x - 1)
 			g->map->map[(int)g->player->y][(int)g->player->x + 1] = '0';
-		if (g->map->map[(int)g->player->y][(int)g->player->x - 1] == 'D')
+		if (g->map->map[(int)g->player->y][(int)g->player->x - 1] == 'D' && (int)g->player->x - 1 != 0)
 			g->map->map[(int)g->player->y][(int)g->player->x - 1] = '0';
 	}
 }
