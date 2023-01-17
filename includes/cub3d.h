@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:45:48 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/16 17:27:36 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:03:05 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ void	ft_player_move_fb(mlx_t *mlx, t_pos *player, t_game *g);
 void	ft_player_turn(mlx_t *mlx, t_pos *player, t_game *g);
 void	ft_player_strafe(mlx_t *mlx, t_pos *player, t_game *g);
 void	mouse_aiming(t_game *g);
+
+void	ft_door(t_game *g);
 
 double	ft_fixangle(double angle);
 int		ft_max(int i, int j);

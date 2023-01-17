@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:28:38 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/13 13:03:08 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:12:55 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	hook(void *base)
 //	else
 //		base->window->minimap_o = 0;
 	mouse_aiming(g);
+	ft_door(g);
 	g->player->dx = cos(g->player->angle);
 	g->player->dy = sin(g->player->angle);
 	ft_sum_ray(g);

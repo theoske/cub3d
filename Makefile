@@ -21,7 +21,8 @@ HOOK		=	hook.c \
 MAP			=	map.c \
 				import_param.c \
 				import_map.c \
-				minimap.c
+				minimap.c \
+				ft_door.c
 FREE		=	free_map.c \
 				free_utils.c \
 				free_utils_2.c
