@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:39:23 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/17 15:51:26 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/18 22:27:48 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int ac, char **av)
 	window_init(&g);
 	if (ft_import_map (av[1], &g))
 		return (1 + (0 * ft_error(MAP_ERROR)));
+	ft_atexture_init(&g);
 	mlx_loop_hook(g.mlx, &hook, &g);
 	mlx_loop(g.mlx);
 	ft_free_texture(g.map);
@@ -35,6 +36,7 @@ int	main(int ac, char **av)
 	mlx_close_window(g.mlx);
 	mlx_terminate(g.mlx);
 	ft_free_tab(g.map->map);
+	ft_free_atexture(g.map);
 	return (0);
 }
 
@@ -61,4 +63,13 @@ void	window_init(t_game *g)
 			sqrt(fabs(M_PI_4 * (g->aspect - 1.77) / 2)) + M_PI_2;
 	g->step = tan(g->fov / (SCREEN_X - 1));
 	g->scale = 1 / g->step;
+}
+
+double	ft_fixangle(double angle)
+{
+	if (angle < 0)
+		angle += (M_PI * 2);
+	else if (angle > M_PI * 2)
+		angle -= (M_PI * 2);
+	return (angle);
 }

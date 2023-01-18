@@ -2,7 +2,7 @@ NAME		=	cub3D
 LIBFT		=	libft.a
 MLXGL		=	libmlx42.a
 CC			=	gcc
-FLAGS		=	-Wall -Werror -Wextra -Imlx ${F_EXTRA}
+FLAGS		=	-Wall -Werror -Wextra ${F_EXTRA}
 F_EXTRA		=	-g -fsanitize=address
 LIBRARY		=	./libft/libft.a ./MLX42/libmlx42.a  ${LIB_LINUX}
 LIB_LINUX	=	-ldl -lglfw -pthread -lm ${LIB_MAC}
@@ -15,14 +15,14 @@ SRCS		=	main.c \
 				$(addprefix hook/, ${HOOK}) \
 				$(addprefix free/, ${FREE}) \
 				$(addprefix ray/, ${RAY}) \
-				$(addprefix utils/, ${UTILS})
+				$(addprefix utils/, ${UTILS}) \
+				$(addprefix texture/, ${TEXTURE}) \
+				$(addprefix bonus/, ${BBONUS})
 HOOK		=	hook.c \
 				mouse_hook.c
 MAP			=	map.c \
 				import_param.c \
-				import_map.c \
-				minimap.c \
-				ft_door.c
+				import_map.c
 FREE		=	free_map.c \
 				free_utils.c \
 				free_utils_2.c
@@ -32,6 +32,9 @@ UTILS		=	ft_get_struct.c \
 				ft_max.c
 RAY			=	ft_sum_ray.c \
 				ft_draw.c
+TEXTURE		=	ft_atexture.c
+BBONUS		=	ft_minimap.c \
+				ft_door.c
 OBJS		=	$(addprefix ${SFOLDER}, ${SRCS:.c=.o})
 RM			=	rm -rf
 

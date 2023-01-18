@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sum_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stissera <stissera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 20:40:56 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/17 16:32:36 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/18 19:20:32 by stissera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ static t_pos	ray_inter_x(t_game *g, double x, double y)
 		inter.y = g->player->y + y * (g->player->x - (int)g->player->x);
 	while ((unsigned)inter.y < (unsigned)g->map->size_y && \
 			(unsigned)inter.x < (unsigned)g->map->size_x && \
-			g->map->map[(unsigned)inter.y][(unsigned)inter.x] != '1')
+			g->map->map[(unsigned)inter.y][(unsigned)inter.x] == '0')
 			inter = (t_pos){inter.x + x, inter.y + y, 0, 0, 0, 0};
+	if ((unsigned)inter.y < (unsigned)g->map->size_y && \
+			(unsigned)inter.x < (unsigned)g->map->size_x)
+		inter.positioned = g->map->map[(unsigned)inter.y][(unsigned)inter.x];
+	else
+		inter.positioned = 0;
 	inter.x += (x < 0);
 	return (inter);
 }
@@ -40,10 +45,23 @@ static t_pos	ray_inter_y(t_game *g, double x, double y)
 		inter.x = g->player->x + x * (g->player->y - (int)g->player->y);
 	while ((unsigned)inter.y < (unsigned)g->map->size_y && \
 			(unsigned)inter.x < (unsigned)g->map->size_x && \
-			g->map->map[(unsigned)inter.y][(unsigned)inter.x] != '1')
+			g->map->map[(unsigned)inter.y][(unsigned)inter.x] == '0')
 		inter = (t_pos){inter.x + x, inter.y + y, 0, 0, 0, 0};
+	if ((unsigned)inter.y < (unsigned)g->map->size_y && \
+			(unsigned)inter.x < (unsigned)g->map->size_x)
+		inter.positioned = g->map->map[(unsigned)inter.y][(unsigned)inter.x];
+	else
+		inter.positioned = 0;
 	inter.y += (y < 0);
 	return (inter);
+}
+
+static void	ft_select_type_texture(t_ray *ray, t_pos *x, t_pos *y)
+{
+	if (ft_strrchr("NS", ray->dir) && y->positioned != '1')
+		ray->dir = y->positioned;
+	if (ft_strrchr("EW", ray->dir) && x->positioned != '1')
+		ray->dir = x->positioned;
 }
 
 static void	ray_sum(t_game *g, double angle, unsigned int ray)
@@ -70,6 +88,7 @@ static void	ray_sum(t_game *g, double angle, unsigned int ray)
 			y.x - (int)y.x, "SN"[y.y < g->player->y]};
 	if (g->ray[ray].dir == 'W' || g->ray[ray].dir == 'S')
 		g->ray[ray].texture_pos = 1. - g->ray[ray].texture_pos;
+	ft_select_type_texture(&g->ray[ray], &x, &y);
 }
 
 void	ft_sum_ray(t_game *g)

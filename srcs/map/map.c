@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stissera <stissera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 16:54:57 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/17 16:50:34 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/17 09:31:28 by stissera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void ft_test_map(char **map, int max_x, int max_y)
+static void	ft_test_map(char **map, int max_x, int max_y)
 {
 	int	y;
 	int	x;
@@ -24,10 +24,10 @@ static void ft_test_map(char **map, int max_x, int max_y)
 		if (y == 0 || y == max_y - 1)
 		{
 			while (map[y][++x])
-				if (map[y][x] != '1')
+				if (!ft_strchr("1T", map[y][x]))
 					exit(ft_error(MAP_ERROR) \
 						+ (0 * ft_free_map((t_map *)ft_get_struct("map"))));
-			continue;
+			continue ;
 		}
 		if (map[y][0] != '1' && map[y][max_x -1] != '1')
 			exit(ft_error(MAP_ERROR) \

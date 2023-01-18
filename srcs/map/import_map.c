@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   import_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
+/*   By: stissera <stissera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 17:25:43 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/16 15:41:47 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/17 09:24:35 by stissera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int	ft_map_first(t_map *map, char *line, char **create)
 			create[0][++c] = '0';
 			continue ;
 		}
-		else if (*line == ' ' && line++)
+		else if (*line == ' ' &&  line++)
 		{
 			create[0][++c] = '1';
 			continue ;
