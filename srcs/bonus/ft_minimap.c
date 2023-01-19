@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:39:01 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/19 17:58:09 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:59:54 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,12 @@ void	ft_print_player(double x, double y, mlx_image_t *minimap, uint32_t color)
 
 void	ft_minimap(t_game *g)
 {
-	mlx_image_t	*minimap;
 	int			x;
 	int			y;
 	double		i;
 	double		j;
 
-	minimap = g->img;
-	ft_mini_init(minimap);
+	ft_mini_init(g->img);
 	x = g->player->x - 4;
 	i = 0;
 	while (x < g->player->x + 5)
@@ -103,9 +101,9 @@ void	ft_minimap(t_game *g)
 		while (y < g->player->y + 5)
 		{
 			if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] != '0' && g->map->map[y][x] != 'D')
-				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), minimap, 0x2f00ff);
+				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), g->img, 0x2f00ff);
 			else if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] == 'D')
-				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), minimap, 0xffffff);
+				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), g->img, 0xffffff);
 			y++;
 			j++;
 		}
