@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:39:01 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/18 22:13:30 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 14:32:46 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ void	ft_minimap(t_game *g)
 		j = 0;
 		while (y < g->player->y + 4)
 		{
-			if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] != '0' && g->map->map[y][x] != 'D')
+			if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] != '0' && g->map->map[y][x] != 'D' && g->map->map[y][x] != 'O')
 				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), minimap, 0x2f00ff);
-			else if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] == 'D')
+			else if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && (g->map->map[y][x] == 'D' || g->map->map[y][x] == 'O'))
 				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), minimap, 0xffffff);
 			y++;
 			j++;
@@ -88,5 +88,5 @@ void	ft_minimap(t_game *g)
 		x++;
 		i++;
 	}
-	ft_print_square(i - 5, j - 5, minimap, 0xff00b7);
+	ft_print_square(i - 5, j - 5, minimap, 0xff00b7);//mettre joueur plus petit (croix?)
 }
