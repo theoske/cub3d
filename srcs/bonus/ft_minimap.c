@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:39:01 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/19 18:28:10 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/19 18:40:09 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	ft_minimap(t_game *g)
 		j = 0;
 		while (y < g->player->y + 5)
 		{
-			if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] == '1')
+			if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] != 'D' && g->map->map[y][x] != 'S' && g->map->map[y][x] != '0')
 				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), g->img, 0x737373ff);
 			else if (x >= 0 && y >= 0 && x < g->map->size_x && y < g->map->size_y && g->map->map[y][x] == 'D')
 				ft_print_square(i + ((int)g->player->x - g->player->x), j + ((int)g->player->y - g->player->y), g->img, 0x00ffddff);
