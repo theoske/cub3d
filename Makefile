@@ -8,17 +8,22 @@ LIBRARY		=	./libft/libft.a ./MLX42/libmlx42.a  ${LIB_LINUX}
 LIB_LINUX	=	-ldl -lglfw -pthread -lm ${LIB_MAC}
 LIB_MAC		=	-L "/Users/${USER}/.brew/opt/glfw/lib/"
 INCLUDE		=	-I./include -I./libft -I./MLX42/include
-SFOLDER		=	./srcs/
-SRCS		=	error.c \
-				$(addprefix map/, ${MAP}) \
-				$(addprefix hook/, ${HOOK}) \
-				$(addprefix free/, ${FREE}) \
-				$(addprefix ray/, ${RAY}) \
-				$(addprefix utils/, ${UTILS})
+SFOLDER		=	
+SRCS		=	./sources/error.c \
+				$(addprefix mandatorypart/map/, ${MAP}) \
+				$(addprefix mandatorypart/hook/, ${HOOK}) \
+				$(addprefix mandatorypart/ray/, ${RAY}) \
+				$(addprefix mandatorypart/utils/, ${UTILS})
 
-NOBONUS		=	main.c
+NOBONUS		=	mandatorypart/main.c \
+				mandatorypart/free/free_map.c \
+				mandatorypart/free/free_utils.c \
+				mandatorypart/free/free_utils_2.c
 
-BONUS		=	../Bonus/main.c
+BONUS		=	bonuspart/main.c \
+				bonuspart/free/free_map.c \
+				bonuspart/free/free_utils.c \
+				bonuspart/free/free_utils_2.c
 
 HOOK		=	hook.c
 MAP			=	map.c \
@@ -41,7 +46,7 @@ RM			=	rm -rf
 
 $(NAME)		:	${LIBFT} ${MLXGL} $(OBJS)
 				@echo Linking 🔗
-				@${CC} ${FLAGS} ${OBJS} ${INCLUDES} ${LIBRARY} -o $@
+				@${CC} ${FLAGS} ${OBJS} ${INCLUDES} ${LIBRARY} $(NOBONUS) -o $@
 				@echo Making ⚒
 				@echo "\033[0;32m-= Ready to play! 👾 =- \033[0;0m"
 

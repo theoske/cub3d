@@ -6,21 +6,22 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:45:48 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/20 18:04:37 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:21:49 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifdef BONUS
+#include "../../bonuspart/includes/cub3d_bonus.h"
 
-#ifndef BONUS
-#else	#include "../../bonuspart/includes/cub3d_bonus.h"
+#else	
 #ifndef CUB3D_H
 # define CUB3D_H
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include "../libft/libft.h"
-# include "../MLX42/include/MLX42/MLX42.h"
+# include "../../libft/libft.h"
+# include "../../MLX42/include/MLX42/MLX42.h"
 # include <errno.h>
 # include <math.h>
 

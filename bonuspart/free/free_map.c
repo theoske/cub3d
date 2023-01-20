@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cnttab.c                                        :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stissera <stissera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 23:26:30 by stissera          #+#    #+#             */
-/*   Updated: 2023/01/20 15:13:24 by stissera         ###   ########.fr       */
+/*   Created: 2022/11/01 17:04:54 by stissera          #+#    #+#             */
+/*   Updated: 2023/01/20 18:40:54 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#include "../../sources/includes/cub3d.h"
 
-size_t	ft_cnttab(char **array)
+int	ft_free_map(t_map *map)
 {
-	size_t	i;
-
-	if (!array)
-		return (0);
-	
-	i = 0;
-	while (array[i] && array[i] != NULL)
-		i++;
-	return (i);
+	ft_free_tab(map->map);
+	return (0);
 }
