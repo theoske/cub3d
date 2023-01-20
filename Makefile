@@ -9,17 +9,18 @@ LIB_LINUX	=	-ldl -lglfw -pthread -lm ${LIB_MAC}
 LIB_MAC		=	-L "/Users/${USER}/.brew/opt/glfw/lib/"
 INCLUDE		=	-I./include -I./libft -I./MLX42/include
 SFOLDER		=	./srcs/
-SRCS		=	main.c \
-				error.c \
+SRCS		=	error.c \
 				$(addprefix map/, ${MAP}) \
 				$(addprefix hook/, ${HOOK}) \
 				$(addprefix free/, ${FREE}) \
 				$(addprefix ray/, ${RAY}) \
-				$(addprefix utils/, ${UTILS}) \
-				$(addprefix texture/, ${TEXTURE}) \
-				$(addprefix bonus/, ${BBONUS})
-HOOK		=	hook.c \
-				mouse_hook.c
+				$(addprefix utils/, ${UTILS})
+
+NOBONUS		=	main.c
+
+BONUS		=	../Bonus/main.c
+
+HOOK		=	hook.c
 MAP			=	map.c \
 				import_param.c \
 				import_map.c
@@ -32,9 +33,6 @@ UTILS		=	ft_get_struct.c \
 				ft_max.c
 RAY			=	ft_sum_ray.c \
 				ft_draw.c
-TEXTURE		=	ft_atexture.c
-BBONUS		=	ft_minimap.c \
-				ft_door.c
 OBJS		=	$(addprefix ${SFOLDER}, ${SRCS:.c=.o})
 RM			=	rm -rf
 
@@ -73,4 +71,6 @@ fclean		:	clean
 				@make -C ./MLX42 fclean
 				@echo "Full clean finish... 🧹"
 
-.PHONY		:	${NAME} all clean fclean re
+bonus		:	$(SRCS) += $(BONUS)
+
+.PHONY		:	${NAME} all clean fclean re bonus

@@ -1,0 +1,11 @@
+NO ./textures/S1.png
+SO ./textures/S2.png
+WE ./textures/S3.png
+NO ./textures/S3.png
+EA ./textures/S4.png
+C 2,11,10
+F 65,103,64
+111111111111
+100000000001
+100N00000001
+111111111111
